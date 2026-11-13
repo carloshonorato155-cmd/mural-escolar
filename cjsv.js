@@ -14,6 +14,10 @@ function carregarAvisos() {
     }
 }
 
+function salvarAvisos(avisos) {
+    localStorage.setItem(CHAVE_AVISOS, JSON.stringify(avisos));
+}
+
 function formatarData(data) {
     const d = new Date(data);
     return isNaN(d.getTime()) ? "Data não disponível" : d.toLocaleDateString("pt-BR");
@@ -68,14 +72,107 @@ if (areaLogin && painelADM) {
 
 const formularioAviso = document.getElementById("formAvisoPreparacao");
 const botaoEnviarAviso = document.getElementById("botaoEnviarAviso");
+const listaAvisos = document.getElementById("listaAvisos");
+
+function criarIdAviso() {
+    return Date.now().toString(36) + Math.random().toString(36).slice(2, 8);
+}
+
+function renderizarAvisosAdmin() {
+    if (!listaAvisos) return;
+
+    const avisos = carregarAvisos();
+    listaAvisos.innerHTML = "";
+
+    if (!avisos.length) {
+        const vazio = criar("div", undefined, {}, listaAvisos);
+        vazio.className = "sem-avisos";
+
+        criar("h3", "Nenhum aviso cadastrado ainda", {}, vazio);
+        criar("p", "Os avisos aparecerão aqui quando forem cadastrados.", {}, vazio);
+        return;
+    }
+
+    avisos.forEach((aviso, indice) => {
+        const item = criar("div", undefined, {
+            border: "1px solid #d4e4f7",
+            borderRadius: "10px",
+            padding: "18px",
+            marginBottom: "12px",
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "flex-start",
+            gap: "15px",
+            flexWrap: "wrap"
+        }, listaAvisos);
+
+        const conteudo = criar("div", undefined, {
+            flex: "1", minWidth: "220px"
+        }, item);
+
+        criar("span", aviso.categoria, {
+            backgroundColor: "#e4eef8", color: "#1768c4",
+            padding: "4px 10px", borderRadius: "20px",
+            fontSize: "12px", fontWeight: "bold"
+        }, conteudo);
+
+        criar("h3", aviso.titulo, {
+            color: "#124477", fontSize: "18px",
+            margin: "10px 0 6px"
+        }, conteudo);
+
+        criar("p", aviso.descricao, {
+            color: "#587ca8", fontSize: "14px", lineHeight: "1.5"
+        }, conteudo);
+
+        if (aviso.endereco) {
+            const link = criar("a", aviso.endereco, {
+                display: "inline-block", marginTop: "8px",
+                color: "#1768c4", fontSize: "13px"
+            }, conteudo);
+
+            link.href = aviso.endereco;
+            link.target = "_blank";
+            link.rel = "noopener noreferrer";
+        }
+
+        criar("small", "Publicado em: " + formatarData(aviso.data), {
+            display: "block", color: "#6682a6", marginTop: "8px"
+        }, conteudo);
+
+        const botaoExcluir = criar("button", "Excluir", {
+            backgroundColor: "#c0392b", color: "white",
+            padding: "9px 14px", border: "none",
+            borderRadius: "7px", cursor: "pointer",
+            fontWeight: "bold"
+        }, item);
+
+        botaoExcluir.addEventListener("click", () => {
+            if (!confirm('Deseja realmente excluir o aviso "' + aviso.titulo + '"?')) return;
+
+            const atuais = carregarAvisos();
+            salvarAvisos(atuais.filter((a, i) =>
+                aviso.id ? a.id !== aviso.id : i !== indice
+            ));
+            renderizarAvisosAdmin();
+        });
+    });
+}
 
 if (formularioAviso && botaoEnviarAviso) {
     botaoEnviarAviso.addEventListener("click", function() {
+        const titulo = document.getElementById("titulo").value.trim();
         const categoria = document.getElementById("categoria").value;
+        const descricao = document.getElementById("descricao").value.trim();
         const endereco = document.getElementById("enderecoAviso").value.trim();
 
         if (!formularioAviso.checkValidity()) {
             formularioAviso.reportValidity();
+            return;
+        }
+
+        if (!titulo || !descricao) {
+            alert("Preencha o título e a descrição do aviso.");
             return;
         }
 
@@ -94,8 +191,30 @@ if (formularioAviso && botaoEnviarAviso) {
             }
         }
 
-        alert("Aviso preenchido com sucesso!\n\nA função de cadastro e publicação será implementada posteriormente com JSON.");
+        const aviso = {
+            id: criarIdAviso(),
+            titulo: titulo,
+            categoria: categoria,
+            descricao: descricao,
+            endereco: endereco,
+            data: new Date().toISOString()
+        };
+
+        const avisos = carregarAvisos();
+        avisos.unshift(aviso);
+        salvarAvisos(avisos);
+
+        formularioAviso.reset();
+        renderizarAvisosAdmin();
+
+        alert("Aviso cadastrado e publicado com sucesso!");
     });
+
+    window.addEventListener("storage", e => {
+        if (e.key === CHAVE_AVISOS) renderizarAvisosAdmin();
+    });
+
+    renderizarAvisosAdmin();
 }
 
 // PÁGINA INICIAL
