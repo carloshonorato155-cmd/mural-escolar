@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Área Administrativa - Mural Escolar</title>
+    <link rel="stylesheet" href="chc.css">
+</head>
+<body class="pagina-adm">
+
+    <header>
+        <div class="container">
+            <div class="top">
+                <div class="logo">
+                    <h1>🎓 Mural Escolar</h1>
+                    <p>Área administrativa</p>
+                </div>
+                <div class="inicio">
+                    <a href="ppj.html" class="botao-inicio">Início</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="areaLogin">
+            <h2>Acesso administrativo</h2>
+            <p>Entre com seu usuário e senha para acessar a área administrativa do Mural Escolar.</p>
+
+            <form id="formLogin">
+                <label for="usuario">Usuário</label>
+                <input type="text" id="usuario" placeholder="Digite seu usuário" required>
+
+                <label for="senha">Senha</label>
+                <input type="password" id="senha" placeholder="Digite sua senha" required>
+
+                <button type="button" id="botaoEntrar">Entrar</button>
+            </form>
+        </section>
+
+        <section id="painelADM" style="display: none;">
+            <section class="banner">
+                <div>
+                    <span>ADMINISTRAÇÃO</span>
+                    <h2>Gerenciar avisos</h2>
+                    <p>Escreva e organize os avisos e comunicados da escola.</p>
+                </div>
+                <div class="megafone">📢</div>
+            </section>
+
+            <section class="cadastro-aviso">
+                <h2>Escrever novo aviso</h2>
+
+                <form id="formAvisoPreparacao">
+                    <label for="titulo">Título do aviso</label>
+                    <input type="text" id="titulo" placeholder="Digite o título do aviso" required>
+
+                    <label for="categoria">Categoria</label>
+                    <select id="categoria" required>
+                        <option value="">Selecione uma categoria</option>
+                        <option value="Eventos">Eventos</option>
+                        <option value="Comunicados">Comunicados</option>
+                    </select>
+
+                    <label for="descricao">Descrição</label>
+                    <textarea id="descricao" placeholder="Digite as informações do aviso..." rows="5" required></textarea>
+
+                    <label for="enderecoAviso">Endereço ou link do aviso (opcional)</label>
+                    <input type="url" id="enderecoAviso" placeholder="https://exemplo.com">
+
+                    <button type="button" id="botaoEnviarAviso">Enviar aviso</button>
+                </form>
+            </section>
+
+            <section class="gerenciar-avisos">
+                <h2>Avisos cadastrados</h2>
+                <div id="listaAvisos">
+                    <div class="sem-avisos">
+                        <h3>Nenhum aviso cadastrado ainda</h3>
+                        <p>Os avisos aparecerão aqui quando forem cadastrados.</p>
+                    </div>
+                </div>
+            </section>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 - Mural Digital Escolar</p>
+        <small>Área administrativa.</small>
+    </footer>
+
+    <script src="cjsv.js"></script>
+</body>
+</html>

@@ -1,0 +1,537 @@
+
+/* =========================================
+   CSS ORIGINAL - PÁGINA INICIAL
+   PRESERVADO
+========================================= */
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f1f6fc;
+    font-family: Arial, sans-serif;
+    color: #103c70;
+}
+
+/* CABEÇALHO */
+
+header {
+    background-color: #124477;
+    padding: 15px;
+    width: 100%;
+}
+
+.container {
+    max-width: 1360px;
+    margin: auto;
+}
+
+.top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo h1 {
+    color: white;
+    font-size: 28px;
+}
+
+.logo p {
+    color: white;
+    font-size: 14px;
+    margin-top: 4px;
+}
+
+.inicio a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* BANNER */
+
+.banner {
+    background: linear-gradient(90deg, #124477, #2169b5);
+    padding: 30px;
+    margin-top: 20px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+}
+
+.banner span {
+    background-color: #398be0;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.banner h2 {
+    font-size: 32px;
+    margin-top: 15px;
+    margin-bottom: 8px;
+}
+
+.banner p {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.megafone {
+    font-size: 85px;
+    margin-right: 40px;
+}
+
+/* PESQUISA */
+
+.pesquisa {
+    margin-top: 20px;
+}
+
+.pesquisa input {
+    width: 100%;
+    padding: 16px;
+    border: 1px solid #cbdcf0;
+    border-radius: 10px;
+    font-size: 16px;
+    outline: none;
+}
+
+/* CATEGORIAS */
+
+.categorias {
+    margin-top: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #d5e3f3;
+}
+
+.categorias h2 {
+    margin-bottom: 12px;
+}
+
+.botoes {
+    display: flex;
+    gap: 15px;
+}
+
+.botoes button {
+    padding: 12px 28px;
+    border: 1px solid #b9d3f1;
+    border-radius: 30px;
+    background-color: white;
+    color: #1558a0;
+    font-size: 15px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.botoes button:hover {
+    background-color: #1768c4;
+    color: white;
+}
+
+/* AVISOS */
+
+.avisos {
+    margin-top: 20px;
+    margin-bottom: 25px;
+}
+
+.titulo-avisos {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.titulo-avisos p {
+    color: #587ca8;
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+/* ESPAÇO SEM AVISOS */
+
+.sem-avisos {
+    width: 100%;
+    background-color: white;
+    border: 1px solid #d4e4f7;
+    border-radius: 10px;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.sem-avisos h3 {
+    color: #124477;
+    margin-bottom: 12px;
+    font-size: 20px;
+}
+
+.sem-avisos p {
+    color: #6682a6;
+    font-size: 15px;
+}
+
+/* RODAPÉ */
+
+footer {
+    background-color: #e4eef8;
+    padding: 20px;
+    text-align: center;
+    color: #587ca8;
+    margin-top: 20px;
+}
+
+footer p {
+    margin-bottom: 5px;
+    font-size: 13px;
+}
+
+footer small {
+    font-size: 12px;
+}
+
+/* TELAS MENORES */
+
+@media (max-width: 700px) {
+    .container {
+        width: 94%;
+    }
+
+    .top {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .banner {
+        padding: 22px;
+    }
+
+    .banner h2 {
+        font-size: 25px;
+    }
+
+    .megafone {
+        font-size: 45px;
+        margin-right: 0px;
+    }
+
+    .botoes {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .botoes button {
+        padding: 10px 15px;
+    }
+
+    .sem-avisos {
+        padding: 40px 15px;
+    }
+}
+
+/* =========================================
+   ÁREA ADMINISTRATIVA
+========================================= */
+
+.pagina-adm {
+    background-color: #f1f6fc;
+    color: #103c70;
+}
+
+.pagina-adm .container {
+    width: 90%;
+    max-width: 1100px;
+}
+
+/* CABEÇALHO ADM */
+
+.pagina-adm header {
+    background-color: #124477;
+    padding: 15px;
+}
+
+.pagina-adm .top {
+    flex-direction: row;
+    align-items: center;
+}
+
+.pagina-adm .logo h1 {
+    color: white;
+    font-size: 28px;
+}
+
+.pagina-adm .logo p {
+    color: white;
+    font-size: 14px;
+}
+
+.pagina-adm .inicio a {
+    background-color: transparent;
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 10px 15px;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.pagina-adm .inicio a:hover {
+    background-color: #2169b5;
+}
+
+/* LOGIN */
+
+.pagina-adm #areaLogin {
+    background-color: white;
+    width: 100%;
+    max-width: 480px;
+    margin: 65px auto;
+    padding: 35px;
+    border: 1px solid #d4e4f7;
+    border-radius: 14px;
+    box-shadow: 0 5px 20px rgba(18, 68, 119, 0.08);
+}
+
+.pagina-adm #areaLogin h2 {
+    color: #124477;
+    font-size: 25px;
+    margin-bottom: 12px;
+    text-align: center;
+}
+
+.pagina-adm #areaLogin > p {
+    color: #6682a6;
+    font-size: 14px;
+    line-height: 1.6;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.pagina-adm #formLogin,
+.pagina-adm #formAvisoPreparacao {
+    display: flex;
+    flex-direction: column;
+}
+
+.pagina-adm #formLogin label,
+.pagina-adm #formAvisoPreparacao label {
+    color: #103c70;
+    font-size: 15px;
+    font-weight: bold;
+    margin-top: 15px;
+    margin-bottom: 8px;
+}
+
+.pagina-adm #formLogin input,
+.pagina-adm #formAvisoPreparacao input,
+.pagina-adm #formAvisoPreparacao select,
+.pagina-adm #formAvisoPreparacao textarea {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #cbdcf0;
+    border-radius: 9px;
+    font-size: 15px;
+    color: #103c70;
+    outline: none;
+}
+
+.pagina-adm #formAvisoPreparacao input,
+.pagina-adm #formAvisoPreparacao select,
+.pagina-adm #formAvisoPreparacao textarea {
+    font-family: Arial, sans-serif;
+    background-color: white;
+}
+
+.pagina-adm #formLogin input:focus,
+.pagina-adm #formAvisoPreparacao input:focus,
+.pagina-adm #formAvisoPreparacao select:focus,
+.pagina-adm #formAvisoPreparacao textarea:focus {
+    border-color: #2169b5;
+}
+
+.pagina-adm #formLogin button,
+.pagina-adm #formAvisoPreparacao button {
+    background-color: #1768c4;
+    color: white;
+    padding: 14px;
+    border: none;
+    border-radius: 9px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.pagina-adm #formLogin button {
+    margin-top: 25px;
+}
+
+.pagina-adm #formAvisoPreparacao button {
+    margin-top: 22px;
+}
+
+.pagina-adm #formLogin button:hover,
+.pagina-adm #formAvisoPreparacao button:hover {
+    background-color: #124477;
+}
+
+/* PAINEL E BANNER */
+
+.pagina-adm #painelADM {
+    width: 100%;
+}
+
+.pagina-adm .banner {
+    background: linear-gradient(90deg, #124477, #2169b5);
+    padding: 30px;
+    margin-top: 25px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+}
+
+.pagina-adm .banner span {
+    background-color: #398be0;
+    color: white;
+}
+
+.pagina-adm .banner h2 {
+    color: white;
+    font-size: 30px;
+}
+
+.pagina-adm .banner p {
+    color: white;
+}
+
+.pagina-adm .megafone {
+    font-size: 75px;
+    margin-right: 20px;
+}
+
+/* CADASTRO DE AVISOS */
+
+.pagina-adm .cadastro-aviso,
+.pagina-adm .gerenciar-avisos {
+    background-color: white;
+    padding: 30px;
+    margin-top: 25px;
+    border: 1px solid #d4e4f7;
+    border-radius: 12px;
+}
+
+.pagina-adm .cadastro-aviso h2,
+.pagina-adm .gerenciar-avisos h2 {
+    color: #124477;
+    font-size: 23px;
+    margin-bottom: 20px;
+}
+
+.pagina-adm #formAvisoPreparacao textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* AVISOS CADASTRADOS */
+
+.pagina-adm .gerenciar-avisos {
+    margin-bottom: 30px;
+}
+
+.pagina-adm .sem-avisos {
+    background-color: #f1f6fc;
+    border: 1px dashed #b9d3f1;
+    padding: 45px 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.pagina-adm .sem-avisos h3 {
+    color: #124477;
+    font-size: 19px;
+    margin-bottom: 10px;
+}
+
+.pagina-adm .sem-avisos p {
+    color: #6682a6;
+    font-size: 15px;
+}
+
+/* RODAPÉ ADM */
+
+.pagina-adm footer {
+    background-color: #124477;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.pagina-adm footer p {
+    color: white;
+}
+
+.pagina-adm footer small {
+    color: #dceafa;
+}
+
+/* RESPONSIVIDADE ADM */
+
+@media (max-width: 700px) {
+    .pagina-adm .container {
+        width: 94%;
+    }
+
+    .pagina-adm .top {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .pagina-adm .logo h1 {
+        font-size: 21px;
+    }
+
+    .pagina-adm .inicio a {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .pagina-adm #areaLogin {
+        margin: 40px auto;
+        padding: 25px 20px;
+    }
+
+    .pagina-adm .banner {
+        padding: 22px;
+    }
+
+    .pagina-adm .banner h2 {
+        font-size: 24px;
+    }
+
+    .pagina-adm .megafone {
+        font-size: 45px;
+        margin-right: 0;
+    }
+
+    .pagina-adm .cadastro-aviso,
+    .pagina-adm .gerenciar-avisos {
+        padding: 20px;
+    }
+}
